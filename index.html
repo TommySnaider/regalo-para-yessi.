@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Para mi novia, la más linda</title>
+  <title>Regalo para Yessi</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
     html, body {
@@ -16,11 +16,8 @@
     }
     .rain {
       position: fixed;
-      width: 100vw;
-      height: 100vh;
-      top: 0; left: 0;
-      pointer-events: none;
-      z-index: 1;
+      width: 100vw; height: 100vh;
+      top: 0; left: 0; pointer-events: none; z-index: 1;
     }
     .heart {
       position: absolute;
@@ -31,12 +28,8 @@
       z-index: 1;
     }
     @keyframes fall {
-      to {
-        transform: translateY(100vh);
-        opacity: 0.3;
-      }
+      to { transform: translateY(100vh); opacity: 0.3; }
     }
-    /* Caja regalo original */
     .gift-stage, .car-stage, .carta-stage, .final-stage {
       display: none;
       flex-direction: column;
@@ -49,12 +42,7 @@
       top: 0; left: 0;
     }
     .active { display: flex; }
-    .gift-box-wrap {
-      position: relative;
-      cursor: pointer;
-      margin-top: 50px;
-      z-index: 2;
-    }
+    .gift-box-wrap { position: relative; cursor: pointer; margin-top: 50px; z-index: 2; }
     .gift-box {
       width: 280px; height: 280px;
       position: relative;
@@ -70,13 +58,11 @@
     }
     .gift-box:hover { transform: scale(1.04);}
     .ribbon-gift {
-      width: 100%;
-      height: 32px;
+      width: 100%; height: 32px;
       background: #e25585;
       position: absolute;
       top: 75px; left: 0;
-      border-radius: 16px 16px 0 0;
-      z-index: 2;
+      border-radius: 16px 16px 0 0; z-index: 2;
     }
     .lazo {
       width: 80px; height: 80px;
@@ -87,233 +73,93 @@
       align-items: center;
       justify-content: center;
     }
-    .lazo span {
-      position: absolute;
-      width: 36px; height: 68px;
-      background: #ffb6d1;
-      border-radius: 50% 50% 50% 50% / 70% 70% 40% 40%;
-    }
+    .lazo span { position: absolute; width: 36px; height: 68px; background: #ffb6d1; border-radius: 50% 50% 50% 50% / 70% 70% 40% 40%;}
     .lazo .l1 { left: 0; transform: rotate(-25deg);}
     .lazo .l2 { right: 0; transform: rotate(25deg);}
-    .lazo .center {
-      left: 23px; top: 23px;
-      width: 35px; height: 35px;
-      background: #e25585;
-      border-radius: 50%;
-      z-index: 4;
-    }
-    .gift-img {
-      margin-bottom: 60px;
-      width: 130px;
-      user-select: none;
-      filter: drop-shadow(0 6px 16px #ffb6d1ba);
-    }
+    .lazo .center { left: 23px; top: 23px; width: 35px; height: 35px; background: #e25585; border-radius: 50%; z-index: 4;}
+    .gift-img { margin-bottom: 60px; width: 130px; user-select: none; filter: drop-shadow(0 6px 16px #ffb6d1ba);}
     .open-gift-text {
-      font-size: 1.6em;
-      color: #fff;
-      margin-top: 240px;
+      font-size: 1.6em; color: #fff; margin-top: 240px;
       animation: pulse 1.1s infinite alternate;
       text-shadow: 0 0 6px #ffb6d1, 0 0 20px #fff;
-      font-weight: bold;
-      letter-spacing: 1px;
-      z-index: 2;
+      font-weight: bold; letter-spacing: 1px; z-index: 2;
     }
-    @keyframes pulse {
-      from { opacity: 1;}
-      to { opacity: 0.5;}
-    }
+    @keyframes pulse { from { opacity: 1;} to { opacity: 0.5;} }
     /* Carro */
-    .car-caption {
-      font-size: 1.5em;
-      color: #fff;
-      font-weight: bold;
-      margin: 24px 0 14px 0;
-      letter-spacing: 1px;
-      text-shadow: 0 2px 12px #e25585,0 0 6px #fff;
-    }
+    .car-caption { font-size: 1.5em; color: #fff; font-weight: bold; margin: 24px 0 14px 0; letter-spacing: 1px; text-shadow: 0 2px 12px #e25585,0 0 6px #fff; }
     .car-track {
-      width: 90vw; max-width: 800px;
-      height: 200px;
+      width: 90vw; max-width: 800px; height: 200px;
       background: linear-gradient(90deg,#ffb6d1 60%,#fff 100%);
       border-radius: 22px;
       box-shadow: 0 2px 18px #fff6;
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-      border: 3px solid #fff;
-      z-index: 3;
+      margin: 0 auto; position: relative; overflow: hidden;
+      border: 3px solid #fff; z-index: 3;
     }
     .car-anim-wrap {
-      position: absolute;
-      width: 250px;
-      height: 110px;
-      top: 80px;
-      left: 0;
-      animation: drive 4.8s linear forwards;
-      z-index: 4;
-      display: flex;
-      align-items: flex-end;
+      position: absolute; width: 250px; height: 110px; top: 80px; left: 0;
+      animation: drive 4.8s linear forwards; z-index: 4; display: flex; align-items: flex-end;
     }
     @keyframes drive {
       0% { left: 0;}
       100% { left: calc(100% - 250px);}
     }
-    .car-img {
-      width: 180px;
-      height: 100px;
-      z-index: 5;
-      position: relative;
-    }
+    .car-img { width: 180px; height: 100px; z-index: 5; position: relative; }
     .car-gift {
-      width: 55px; height: 55px;
-      background: #fff;
-      border: 4px solid #e25585;
-      border-radius: 13px;
-      box-shadow: 0 8px 15px #e25585aa;
-      position: absolute;
-      left: 10px;
-      bottom: 85px;
-      display: flex; align-items: center; justify-content: center;
-      z-index: 6;
+      width: 55px; height: 55px; background: #fff; border: 4px solid #e25585; border-radius: 13px;
+      box-shadow: 0 8px 15px #e25585aa; position: absolute; left: 10px; bottom: 85px;
+      display: flex; align-items: center; justify-content: center; z-index: 6;
     }
-    .car-gift img {
-      width: 35px;
-      display: block;
-    }
+    .car-gift img { width: 35px; display: block; }
     .loading-bar {
-      background: #fff;
-      border-radius: 20px;
-      width: 60vw; max-width: 380px;
-      height: 36px;
-      margin: 25px auto 0 auto;
-      box-shadow: 0 2px 12px #ffb6d1aa;
-      position: relative;
-      overflow: hidden;
+      background: #fff; border-radius: 20px; width: 60vw; max-width: 380px; height: 36px;
+      margin: 25px auto 0 auto; box-shadow: 0 2px 12px #ffb6d1aa; position: relative; overflow: hidden;
     }
     .loading-fill {
       background: linear-gradient(90deg, #e25585, #ffb6d1 70%);
-      height: 100%;
-      width: 0;
-      border-radius: 20px;
-      font-weight: bold;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.07em;
-      transition: width 0.3s;
-      letter-spacing: 1px;
+      height: 100%; width: 0; border-radius: 20px; font-weight: bold; color: #fff;
+      display: flex; align-items: center; justify-content: center; font-size: 1.07em;
+      transition: width 0.3s; letter-spacing: 1px;
     }
-    /* Carta */
     .carta-card {
-      background: #fff;
-      color: #e25585;
-      border-radius: 26px;
-      width: 94vw; max-width: 540px;
-      box-shadow: 0 4px 30px #ffb6d1cc;
-      margin: 25px auto;
-      padding: 46px 24px 32px 24px;
-      position: relative;
-      font-size: 1.18em;
-      text-align: left;
-      z-index: 2;
-      filter: drop-shadow(0 0 8px #fff6);
-      max-height: 70vh;
-      overflow-y: auto;
+      background: #fff; color: #e25585; border-radius: 26px; width: 94vw; max-width: 540px;
+      box-shadow: 0 4px 30px #ffb6d1cc; margin: 25px auto; padding: 46px 24px 32px 24px;
+      position: relative; font-size: 1.18em; text-align: left; z-index: 2; filter: drop-shadow(0 0 8px #fff6);
+      max-height: 70vh; overflow-y: auto;
     }
-    .carta-header {
-      font-size: 1.45em;
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 10px;
-      color: #e25585;
-      text-shadow: 0 2px 8px #ffb6d1aa;
-    }
-    .carta-flecha {
-      text-align: center;
-      font-size: 2.5em;
-      color: #e25585;
-      margin-top: 8px;
-      margin-bottom: -8px;
-      animation: flechaMove 1s infinite alternate;
-    }
-    @keyframes flechaMove {
-      from { transform: translateY(0);}
-      to { transform: translateY(10px);}
-    }
+    .carta-header { font-size: 1.45em; font-weight: bold; text-align: center; margin-bottom: 10px; color: #e25585; text-shadow: 0 2px 8px #ffb6d1aa; }
+    .carta-flecha { text-align: center; font-size: 2.5em; color: #e25585; margin-top: 8px; margin-bottom: -8px; animation: flechaMove 1s infinite alternate; }
+    @keyframes flechaMove { from { transform: translateY(0);} to { transform: translateY(10px);} }
     .carta-btn {
-      margin: 28px auto 0 auto;
-      background: linear-gradient(90deg, #e25585 60%, #ffb6d1 100%);
-      color: #fff;
-      padding: 14px 36px;
-      font-size: 1.18em;
-      border: none;
-      border-radius: 14px;
-      cursor: pointer;
-      font-family: inherit;
-      font-weight: bold;
-      letter-spacing: 1px;
-      box-shadow: 0 2px 16px #ffb6d1bb;
-      transition: background 0.2s;
-      display: block;
+      margin: 28px auto 0 auto; background: linear-gradient(90deg, #e25585 60%, #ffb6d1 100%);
+      color: #fff; padding: 14px 36px; font-size: 1.18em; border: none; border-radius: 14px;
+      cursor: pointer; font-family: inherit; font-weight: bold; letter-spacing: 1px;
+      box-shadow: 0 2px 16px #ffb6d1bb; transition: background 0.2s; display: block;
     }
-    .carta-btn:hover {
-      background: linear-gradient(90deg, #b81d53 50%, #ffb6d1 100%);
-    }
-    /* Explosión corazones */
+    .carta-btn:hover { background: linear-gradient(90deg, #b81d53 50%, #ffb6d1 100%);}
     .explosion {
-      position: fixed;
-      left: 50%; top: 54%;
-      width: 1px; height: 1px;
-      pointer-events: none;
-      z-index: 999;
+      position: fixed; left: 50%; top: 54%; width: 1px; height: 1px; pointer-events: none; z-index: 999;
       animation: explodeshow 1.3s forwards;
     }
     .explosion .heart {
-      font-size: 2.3em;
-      animation: boom 1.2s forwards;
-      opacity: 1;
+      font-size: 2.3em; animation: boom 1.2s forwards; opacity: 1;
     }
-    @keyframes boom {
-      from { transform: scale(0.3); opacity: 1;}
-      to { transform: scale(2.2) translateY(-120px) rotate(24deg); opacity: 0;}
-    }
-    @keyframes explodeshow {
-      from { width: 0; height: 0;}
-      to { width: 430px; height: 430px;}
-    }
-    /* Besos y nota final */
+    @keyframes boom { from { transform: scale(0.3); opacity: 1;} to { transform: scale(2.2) translateY(-120px) rotate(24deg); opacity: 0;} }
+    @keyframes explodeshow { from { width: 0; height: 0;} to { width: 430px; height: 430px;} }
     .besos-img {
-      width: 170px;
-      margin: 25px auto 10px auto;
-      animation: besoscale 1s infinite alternate;
-      filter: drop-shadow(0 2px 10px #fff2);
-      display: block;
+      width: 170px; margin: 25px auto 10px auto;
+      animation: besoscale 1s infinite alternate; filter: drop-shadow(0 2px 10px #fff2); display: block;
     }
-    @keyframes besoscale {
-      from { transform: scale(1);}
-      to { transform: scale(1.1);}
-    }
+    @keyframes besoscale { from { transform: scale(1);} to { transform: scale(1.1);} }
     .amor-mensaje {
-      font-size: 1.22em;
-      color: #fff;
-      margin-top: 18px;
-      margin-bottom: 13px;
-      text-shadow: 0 2px 12px #ffb6d1bb;
-      letter-spacing: 1px;
+      font-size: 1.22em; color: #fff; margin-top: 18px; margin-bottom: 13px;
+      text-shadow: 0 2px 12px #ffb6d1bb; letter-spacing: 1px;
     }
     .nota-text {
-      background: #ffb6d1;
-      color: #e25585;
-      border-radius: 16px;
-      padding: 24px;
-      font-size: 1.13em;
-      margin: 30px 0 0 0;
-      line-height: 1.54;
+      background: #ffb6d1; color: #e25585; border-radius: 16px; padding: 24px;
+      font-size: 1.13em; margin: 30px 0 0 0; line-height: 1.54;
       box-shadow: 0 2px 12px #ffb6d1aa;
       font-family: 'Segoe Print', cursive, sans-serif;
     }
-    /* Responsive */
     @media (max-width: 600px) {
       .gift-box, .ribbon-gift { width: 170px; }
       .gift-box { height: 170px;}
@@ -328,7 +174,6 @@
   </style>
 </head>
 <body>
-  <!-- Lluvia de corazones -->
   <div class="rain"></div>
 
   <!-- Caja de regalo -->
@@ -351,11 +196,11 @@
   <div class="car-stage">
     <div class="car-caption">Servicio de Regalo Sorprendentes</div>
     <div class="car-track">
-      <div class="car-anim-wrap">
+      <div class="car-anim-wrap" id="carAnimWrap">
         <div class="car-gift">
           <img src="https://img.icons8.com/color/48/000000/gift.png" alt="gift">
         </div>
-        <img src="https://img.icons8.com/fluency/256/car-front.png" class="car-img">
+        <img src="https://img.icons8.com/fluency/256/car--v2.png" class="car-img" alt="Carro">
       </div>
     </div>
     <div class="loading-bar">
@@ -390,12 +235,10 @@
       Estoy tan agradecido por haberte conocido, por tu dulzura, tu alegría y tu amor inmenso. Eres el regalo más bello que la vida me dio. <br><br>
       Te amo hoy y siempre. <b>¡Feliz Día de la Novia, mi cielo!</b>
     </div>
-    <!-- Música (YouTube embebido) -->
-    <div style="margin:30px auto 15px auto; max-width:380px;">
-      <iframe width="100%" height="72" src="https://www.youtube.com/embed/rMY9oCyrUgQ?autoplay=1" title="Bajo el agua - Manuel Medrano" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+    <!-- Música Vocaroo -->
+    <audio id="audioVoca" src="https://media.vocaroo.com/1m910L8rtRVF" controls style="margin:30px auto 15px auto; display:block; max-width:320px;" autoplay></audio>
     <div style="color: #fff; font-size: 0.96em; text-align:center;">
-      Si no escuchas la música, <a href="https://www.youtube.com/watch?v=zLX_GcXt2pI&list=RDEMIoqze__qNKgaRzMkdpa65A&start_radio=1&rv=rMY9oCyrUgQ" target="_blank" style="color:#fff;text-decoration:underline;">haz clic aquí para abrirla en YouTube</a>.
+      Si no escuchas la música, <a href="https://voca.ro/1m910L8rtRVF" target="_blank" style="color:#fff;text-decoration:underline;">haz clic aquí</a>.
     </div>
   </div>
 
@@ -466,13 +309,17 @@
 
       this.style.display = 'none';
 
-      // Esperar unos segundos y pasar a la última escena con música y besos
+      // Esperar 15 segundos y pasar a la última escena con música y besos
       setTimeout(() => {
         cartaStage.classList.remove('active');
         finalStage.classList.add('active');
-        // El iframe de YouTube ya tiene autoplay, pero los navegadores pueden bloquearlo si no hay interacción previa
-        // Si tienes un archivo mp3 propio puedes añadirlo y reproducirlo aquí
-      }, 5000);
+        // Reproduce el audio Vocaroo automáticamente (si el navegador lo permite)
+        var audio = document.getElementById('audioVoca');
+        if (audio) {
+          audio.volume = 1;
+          audio.play().catch(()=>{});
+        }
+      }, 15000);
     };
 
     // Explosión de corazones tipo volcán
