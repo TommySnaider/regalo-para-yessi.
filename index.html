@@ -85,6 +85,106 @@
       font-weight: bold; letter-spacing: 1px; z-index: 2;
     }
     @keyframes pulse { from { opacity: 1;} to { opacity: 0.5;} }
+  </style>
+</head>
+<body>
+  <!-- AUDIO INICIAL -->
+  <audio autoplay muted oncanplay="this.muted=false">
+    <source src="Carla.MP4%20(audio-extractor.net).mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="rain"></div>
+  <!-- Aquí continúa tu código completo tal como lo tenías -->
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Regalo para Yessi</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', cursive, sans-serif;
+      background: radial-gradient(circle at 50% 35%, #ff3131 60%, #a60009 100%);
+      overflow-x: hidden;
+      color: #fff;
+    }
+    .rain {
+      position: fixed;
+      width: 100vw; height: 100vh;
+      top: 0; left: 0; pointer-events: none; z-index: 1;
+    }
+    .heart {
+      position: absolute;
+      color: #e25585;
+      font-size: 2em;
+      animation: fall 3.4s linear infinite;
+      opacity: 0.7;
+      z-index: 1;
+    }
+    @keyframes fall {
+      to { transform: translateY(100vh); opacity: 0.3; }
+    }
+    .gift-stage, .car-stage, .carta-stage, .final-stage {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      z-index: 2;
+      position: absolute;
+      width: 100vw; min-height: 100vh;
+      top: 0; left: 0;
+    }
+    .active { display: flex; }
+    .gift-box-wrap { position: relative; cursor: pointer; margin-top: 50px; z-index: 2; }
+    .gift-box {
+      width: 280px; height: 280px;
+      position: relative;
+      background: linear-gradient(145deg, #fff, #ffe6ec 90%);
+      border-radius: 30px;
+      border: 7px solid #e25585;
+      box-shadow: 0 8px 40px #ffb6d1aa;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      transition: transform 0.2s;
+      overflow: visible;
+    }
+    .gift-box:hover { transform: scale(1.04);}
+    .ribbon-gift {
+      width: 100%; height: 32px;
+      background: #e25585;
+      position: absolute;
+      top: 75px; left: 0;
+      border-radius: 16px 16px 0 0; z-index: 2;
+    }
+    .lazo {
+      width: 80px; height: 80px;
+      position: absolute;
+      top: -40px; left: 50%; transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lazo span { position: absolute; width: 36px; height: 68px; background: #ffb6d1; border-radius: 50% 50% 50% 50% / 70% 70% 40% 40%;}
+    .lazo .l1 { left: 0; transform: rotate(-25deg);}
+    .lazo .l2 { right: 0; transform: rotate(25deg);}
+    .lazo .center { left: 23px; top: 23px; width: 35px; height: 35px; background: #e25585; border-radius: 50%; z-index: 4;}
+    .gift-img { margin-bottom: 60px; width: 130px; user-select: none; filter: drop-shadow(0 6px 16px #ffb6d1ba);}
+    .open-gift-text {
+      font-size: 1.6em; color: #fff; margin-top: 240px;
+      animation: pulse 1.1s infinite alternate;
+      text-shadow: 0 0 6px #ffb6d1, 0 0 20px #fff;
+      font-weight: bold; letter-spacing: 1px; z-index: 2;
+    }
+    @keyframes pulse { from { opacity: 1;} to { opacity: 0.5;} }
     /* Carro */
     .car-caption { font-size: 1.5em; color: #fff; font-weight: bold; margin: 24px 0 14px 0; letter-spacing: 1px; text-shadow: 0 2px 12px #e25585,0 0 6px #fff; }
     .car-track {
