@@ -2,186 +2,182 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Regalo Sorpresa para Yessi</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para mi novia, la más linda</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
     html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
-      min-height: 100vh;
+      font-family: 'Segoe UI', cursive, sans-serif;
       background: radial-gradient(circle at 50% 35%, #ff3131 60%, #a60009 100%);
       overflow-x: hidden;
-      font-family: 'Segoe UI', cursive, sans-serif;
       color: #fff;
-      scroll-behavior: smooth;
     }
-    .background-anim {
+    .rain {
       position: fixed;
+      width: 100vw;
+      height: 100vh;
       top: 0; left: 0;
-      width: 100vw; height: 100vh;
       pointer-events: none;
-      z-index: 0;
+      z-index: 1;
     }
-    .star, .bg-heart {
+    .heart {
       position: absolute;
-      opacity: 0.8;
-      animation: float 12s linear infinite;
-      pointer-events: none;
+      color: #e25585;
+      font-size: 2em;
+      animation: fall 3.4s linear infinite;
+      opacity: 0.7;
+      z-index: 1;
     }
-    .star {
-      color: #fff9;
-      font-size: 1.2em;
-      animation-duration: 8s;
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0.3;
+      }
     }
-    .bg-heart {
-      color: #ffb6d1;
-      font-size: 1.8em;
-      animation-duration: 13s;
-    }
-    @keyframes float {
-      0% { transform: translateY(0) scale(1);}
-      100% { transform: translateY(100vh) scale(1.2);}
-    }
-    .stage, .carro-stage, .carta-stage, .amor-stage {
+    /* Caja regalo original */
+    .gift-stage, .car-stage, .carta-stage, .final-stage {
       display: none;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       min-height: 100vh;
-      width: 100vw;
-      position: absolute;
-      top: 0; left: 0;
       z-index: 2;
-      overflow-y: auto;
+      position: absolute;
+      width: 100vw; min-height: 100vh;
+      top: 0; left: 0;
     }
     .active { display: flex; }
     .gift-box-wrap {
       position: relative;
-      margin: 70px auto 0 auto;
       cursor: pointer;
-      z-index: 3;
+      margin-top: 50px;
+      z-index: 2;
     }
     .gift-box {
-      width: 270px; height: 270px;
-      background: linear-gradient(145deg, #fff, #ffe6ec 90%);
-      border-radius: 22px;
-      box-shadow: 0 8px 50px #ffb6d1aa;
+      width: 280px; height: 280px;
       position: relative;
+      background: linear-gradient(145deg, #fff, #ffe6ec 90%);
+      border-radius: 30px;
+      border: 7px solid #e25585;
+      box-shadow: 0 8px 40px #ffb6d1aa;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      border: 5px solid #d7003a;
+      align-items: flex-end;
       transition: transform 0.2s;
+      overflow: visible;
     }
-    .gift-box:hover { transform: scale(1.03);}
+    .gift-box:hover { transform: scale(1.04);}
     .ribbon-gift {
       width: 100%;
-      height: 30px;
-      background: #d7003a;
+      height: 32px;
+      background: #e25585;
       position: absolute;
-      top: 60px; left: 0;
-      border-radius: 12px 12px 0 0;
+      top: 75px; left: 0;
+      border-radius: 16px 16px 0 0;
+      z-index: 2;
     }
     .lazo {
-      width: 70px; height: 70px;
+      width: 80px; height: 80px;
       position: absolute;
-      top: -32px; left: 50%; transform: translateX(-50%);
-      z-index: 1;
+      top: -40px; left: 50%; transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .lazo span {
       position: absolute;
-      width: 30px; height: 60px;
+      width: 36px; height: 68px;
       background: #ffb6d1;
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      border-radius: 50% 50% 50% 50% / 70% 70% 40% 40%;
     }
     .lazo .l1 { left: 0; transform: rotate(-25deg);}
     .lazo .l2 { right: 0; transform: rotate(25deg);}
     .lazo .center {
-      left: 18px; top: 18px;
-      width: 34px; height: 34px;
-      background: #d7003a;
+      left: 23px; top: 23px;
+      width: 35px; height: 35px;
+      background: #e25585;
       border-radius: 50%;
-      z-index: 2;
+      z-index: 4;
     }
     .gift-img {
-      margin-top: 70px;
-      width: 120px;
-      filter: drop-shadow(0 6px 16px #ffb6d1ba);
+      margin-bottom: 60px;
+      width: 130px;
       user-select: none;
+      filter: drop-shadow(0 6px 16px #ffb6d1ba);
     }
     .open-gift-text {
       font-size: 1.6em;
       color: #fff;
-      margin-top: 220px;
+      margin-top: 240px;
       animation: pulse 1.1s infinite alternate;
       text-shadow: 0 0 6px #ffb6d1, 0 0 20px #fff;
       font-weight: bold;
       letter-spacing: 1px;
+      z-index: 2;
     }
     @keyframes pulse {
       from { opacity: 1;}
       to { opacity: 0.5;}
     }
     /* Carro */
-    .carro-caption {
+    .car-caption {
       font-size: 1.5em;
       color: #fff;
       font-weight: bold;
-      margin: 18px 0 12px 0;
+      margin: 24px 0 14px 0;
       letter-spacing: 1px;
-      text-shadow: 0 2px 12px #d7003a,0 0 6px #fff;
+      text-shadow: 0 2px 12px #e25585,0 0 6px #fff;
     }
-    .carro-track {
-      width: 90vw; max-width: 750px;
-      height: 190px;
+    .car-track {
+      width: 90vw; max-width: 800px;
+      height: 200px;
       background: linear-gradient(90deg,#ffb6d1 60%,#fff 100%);
-      border-radius: 20px;
+      border-radius: 22px;
       box-shadow: 0 2px 18px #fff6;
       margin: 0 auto;
       position: relative;
       overflow: hidden;
-      border: 4px solid #fff;
+      border: 3px solid #fff;
       z-index: 3;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-start;
     }
-    .carro-img-wrap {
+    .car-anim-wrap {
       position: absolute;
-      width: 230px;
-      height: 120px;
-      top: 60px;
+      width: 250px;
+      height: 110px;
+      top: 80px;
       left: 0;
-      animation: drive 5s linear forwards;
+      animation: drive 4.8s linear forwards;
       z-index: 4;
       display: flex;
       align-items: flex-end;
     }
     @keyframes drive {
       0% { left: 0;}
-      100% { left: calc(100% - 230px);}
+      100% { left: calc(100% - 250px);}
     }
-    .carro-img {
+    .car-img {
       width: 180px;
       height: 100px;
       z-index: 5;
       position: relative;
     }
-    .carro-gift {
-      width: 60px; height: 60px;
+    .car-gift {
+      width: 55px; height: 55px;
       background: #fff;
-      border: 4px solid #d7003a;
-      border-radius: 12px;
+      border: 4px solid #e25585;
+      border-radius: 13px;
       box-shadow: 0 8px 15px #e25585aa;
       position: absolute;
-      left: 5px;
-      bottom: 65px;
+      left: 10px;
+      bottom: 85px;
       display: flex; align-items: center; justify-content: center;
       z-index: 6;
     }
-    .carro-gift img {
-      width: 40px;
+    .car-gift img {
+      width: 35px;
       display: block;
     }
     .loading-bar {
@@ -195,7 +191,7 @@
       overflow: hidden;
     }
     .loading-fill {
-      background: linear-gradient(90deg, #d7003a, #ffb6d1 70%);
+      background: linear-gradient(90deg, #e25585, #ffb6d1 70%);
       height: 100%;
       width: 0;
       border-radius: 20px;
@@ -211,14 +207,14 @@
     /* Carta */
     .carta-card {
       background: #fff;
-      color: #d7003a;
+      color: #e25585;
       border-radius: 26px;
-      width: 92vw; max-width: 540px;
+      width: 94vw; max-width: 540px;
       box-shadow: 0 4px 30px #ffb6d1cc;
       margin: 25px auto;
       padding: 46px 24px 32px 24px;
       position: relative;
-      font-size: 1.2em;
+      font-size: 1.18em;
       text-align: left;
       z-index: 2;
       filter: drop-shadow(0 0 8px #fff6);
@@ -226,31 +222,37 @@
       overflow-y: auto;
     }
     .carta-header {
-      font-size: 1.5em;
+      font-size: 1.45em;
       font-weight: bold;
       text-align: center;
       margin-bottom: 10px;
-      color: #d7003a;
+      color: #e25585;
       text-shadow: 0 2px 8px #ffb6d1aa;
     }
-    .carta-date {
+    .carta-flecha {
       text-align: center;
-      color: #aaa;
-      margin-bottom: 22px;
-      font-size: 1.01em;
+      font-size: 2.5em;
+      color: #e25585;
+      margin-top: 8px;
+      margin-bottom: -8px;
+      animation: flechaMove 1s infinite alternate;
+    }
+    @keyframes flechaMove {
+      from { transform: translateY(0);}
+      to { transform: translateY(10px);}
     }
     .carta-btn {
-      margin: 32px auto 0 auto;
-      background: linear-gradient(90deg, #d7003a 60%, #ffb6d1 100%);
+      margin: 28px auto 0 auto;
+      background: linear-gradient(90deg, #e25585 60%, #ffb6d1 100%);
       color: #fff;
-      padding: 15px 40px;
-      font-size: 1.22em;
+      padding: 14px 36px;
+      font-size: 1.18em;
       border: none;
       border-radius: 14px;
       cursor: pointer;
       font-family: inherit;
       font-weight: bold;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       box-shadow: 0 2px 16px #ffb6d1bb;
       transition: background 0.2s;
       display: block;
@@ -273,8 +275,8 @@
       opacity: 1;
     }
     @keyframes boom {
-      from { transform: scale(0.2); opacity: 1;}
-      to { transform: scale(2.1) translateY(-110px) rotate(24deg); opacity: 0;}
+      from { transform: scale(0.3); opacity: 1;}
+      to { transform: scale(2.2) translateY(-120px) rotate(24deg); opacity: 0;}
     }
     @keyframes explodeshow {
       from { width: 0; height: 0;}
@@ -293,16 +295,16 @@
       to { transform: scale(1.1);}
     }
     .amor-mensaje {
-      font-size: 1.25em;
+      font-size: 1.22em;
       color: #fff;
-      margin-top: 24px;
-      margin-bottom: 14px;
+      margin-top: 18px;
+      margin-bottom: 13px;
       text-shadow: 0 2px 12px #ffb6d1bb;
       letter-spacing: 1px;
     }
     .nota-text {
       background: #ffb6d1;
-      color: #d7003a;
+      color: #e25585;
       border-radius: 16px;
       padding: 24px;
       font-size: 1.13em;
@@ -317,20 +319,20 @@
       .gift-box { height: 170px;}
       .ribbon-gift { height: 15px; top: 25px;}
       .lazo { width: 32px; height: 32px; top: -14px;}
-      .stage, .carro-stage, .carta-stage, .amor-stage { padding-top: 40px;}
-      .carro-img-wrap { width: 120px; height: 60px;}
-      .carro-img { width: 90px; height: 50px;}
-      .carro-gift { width: 32px; height: 32px; bottom: 35px;}
-      .carro-gift img { width: 22px;}
+      .stage, .car-stage, .carta-stage, .final-stage { padding-top: 40px;}
+      .car-anim-wrap { width: 120px; height: 60px;}
+      .car-img { width: 90px; height: 50px;}
+      .car-gift { width: 28px; height: 28px; bottom: 35px;}
+      .car-gift img { width: 16px;}
     }
   </style>
 </head>
 <body>
-  <!-- Fondo animado -->
-  <div class="background-anim" id="bgAnim"></div>
+  <!-- Lluvia de corazones -->
+  <div class="rain"></div>
 
   <!-- Caja de regalo -->
-  <div class="stage active">
+  <div class="gift-stage active">
     <div class="gift-box-wrap" id="openGift">
       <div class="gift-box">
         <div class="ribbon-gift"></div>
@@ -346,14 +348,14 @@
   </div>
 
   <!-- Carro en movimiento -->
-  <div class="carro-stage">
-    <div class="carro-caption">Servicio de Regalos Sorprendentes</div>
-    <div class="carro-track">
-      <div class="carro-img-wrap" id="carroAnim">
-        <div class="carro-gift">
+  <div class="car-stage">
+    <div class="car-caption">Servicio de Regalo Sorprendentes</div>
+    <div class="car-track">
+      <div class="car-anim-wrap">
+        <div class="car-gift">
           <img src="https://img.icons8.com/color/48/000000/gift.png" alt="gift">
         </div>
-        <img src="https://img.icons8.com/fluency/256/car-front.png" class="carro-img">
+        <img src="https://img.icons8.com/fluency/256/car-front.png" class="car-img">
       </div>
     </div>
     <div class="loading-bar">
@@ -365,68 +367,59 @@
   <div class="carta-stage">
     <div class="carta-card">
       <div class="carta-header">Tommy, tu niño que te adora, te envía una carta</div>
-      <div class="carta-date" id="cartaFecha"></div>
-      <div class="nota-text" style="display:none;" id="notaText">
-        Mi linda Yessi,<br>
-        Hoy celebro tenerte en mi vida y en mi mundo. Eres la persona más hermosa y adorable, mi luz y mi inspiración.<br><br>
-        Gracias por ser la razón de mi sonrisa, por tus detalles, tu dulzura y por ser mi mayor sueño. Pronto estaremos juntos y cumpliremos cada uno de nuestros sueños, mi princesa.<br><br>
-        Te amo con locura y siempre estaré agradecido por conocerte y por tu amor. ¡Feliz Día de la Novia, mi cielo!<br>
-        <b>Con amor, tu Tommy 💖</b>
+      <div class="carta-flecha">⬇️</div>
+      <div id="cartaContent" style="text-align:center;margin:22px 0;">
+        <div style="font-size:1.19em;padding:12px 0;color:#b81d53;font-family:'Segoe Print',cursive;">
+          <b>Presiona para abrir</b>
+        </div>
       </div>
-      <button class="carta-btn" id="btnAbrirCarta">Presiona para abrir</button>
+      <button class="carta-btn" id="btnAbrirCarta">Abrir carta</button>
     </div>
   </div>
 
   <!-- Besos y corazones -->
-  <div class="amor-stage" style="position:relative;">
-    <audio id="audioBajoElAgua" src="https://tommysnaider.github.io/regalo-para-yessi./" preload="auto"></audio>
-    <img class="besos-img" src="https://img.icons8.com/emoji/192/kiss-mark-emoji.png" alt="Besos">
+  <div class="final-stage" style="position:relative;">
+    <div class="besos-img">
+      <img src="https://img.icons8.com/emoji/192/kiss-mark-emoji.png" alt="Besos" style="width:160px;">
+    </div>
     <div class="amor-mensaje">¡Te mando millones de besos y corazones! 💋💖</div>
-    <div class="nota-text">
+    <div class="nota-text" style="text-align:left;">
       <b>Tommy para mi linda Yessi:</b><br>
-      Mi princesa, gracias por existir y permitirme amarte. Eres mi razón de sonreír, mi sueño y mi destino. <br>
+      Mi princesa, gracias por existir y permitirme amarte. Eres mi razón de sonreír, mi sueño y mi destino.<br>
       ¡Pronto estaremos juntos y cumpliremos cada uno de nuestros sueños!<br>
-      <i>Te amo hoy y siempre.</i>
+      Estoy tan agradecido por haberte conocido, por tu dulzura, tu alegría y tu amor inmenso. Eres el regalo más bello que la vida me dio. <br><br>
+      Te amo hoy y siempre. <b>¡Feliz Día de la Novia, mi cielo!</b>
+    </div>
+    <!-- Música (YouTube embebido) -->
+    <div style="margin:30px auto 15px auto; max-width:380px;">
+      <iframe width="100%" height="72" src="https://www.youtube.com/embed/rMY9oCyrUgQ?autoplay=1" title="Bajo el agua - Manuel Medrano" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div style="color: #fff; font-size: 0.96em; text-align:center;">
+      Si no escuchas la música, <a href="https://www.youtube.com/watch?v=zLX_GcXt2pI&list=RDEMIoqze__qNKgaRzMkdpa65A&start_radio=1&rv=rMY9oCyrUgQ" target="_blank" style="color:#fff;text-decoration:underline;">haz clic aquí para abrirla en YouTube</a>.
     </div>
   </div>
 
   <script>
-    // Fondo animado de estrellas y corazones
-    function fondoAnimado() {
-      const bg = document.getElementById('bgAnim');
-      for(let i=0; i<24; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        star.textContent = '★';
-        star.style.left = Math.random()*100 + 'vw';
-        star.style.top = -10 - Math.random()*150 + 'px';
-        star.style.fontSize = (1 + Math.random()*1.8) + 'em';
-        star.style.animationDelay = Math.random()*7 + 's';
-        bg.appendChild(star);
-      }
-      for(let i=0; i<18; i++) {
+    // Lluvia de corazones
+    function lluviaDeCorazones() {
+      const rain = document.querySelector('.rain');
+      for (let i=0; i<48; i++) {
         const heart = document.createElement('div');
-        heart.className = 'bg-heart';
-        heart.textContent = '❤';
+        heart.className = 'heart';
+        heart.textContent = '💖';
         heart.style.left = Math.random()*100 + 'vw';
-        heart.style.top = -10 - Math.random()*160 + 'px';
-        heart.style.fontSize = (1.1 + Math.random()*2.5) + 'em';
-        heart.style.animationDelay = Math.random()*10 + 's';
-        bg.appendChild(heart);
+        heart.style.animationDelay = Math.random()*3 + 's';
+        heart.style.fontSize = (1.5 + Math.random()*2.5) + 'em';
+        rain.appendChild(heart);
       }
     }
-    fondoAnimado();
+    lluviaDeCorazones();
 
     // Flujo del regalo
-    const box = document.querySelector('.stage');
-    const carStage = document.querySelector('.carro-stage');
+    const box = document.querySelector('.gift-stage');
+    const carStage = document.querySelector('.car-stage');
     const cartaStage = document.querySelector('.carta-stage');
-    const amorStage = document.querySelector('.amor-stage');
-
-    // Fecha automática
-    document.getElementById('cartaFecha').textContent = new Date().toLocaleDateString('es-ES', {
-      year: 'numeric', month: 'long', day: 'numeric'
-    });
+    const finalStage = document.querySelector('.final-stage');
 
     // Abrir caja
     document.getElementById('openGift').onclick = function() {
@@ -456,46 +449,49 @@
 
     // Abrir carta
     document.getElementById('btnAbrirCarta').onclick = function() {
-      document.getElementById('notaText').style.display = 'block';
-      this.style.display = 'none';
-      setTimeout(explodeHearts, 1000);
+      // Explosión de corazones
+      explodeHearts();
+      // Mostrar carta después de la explosión
+      setTimeout(()=>{
+        document.getElementById('cartaContent').innerHTML = `
+        <div style="font-size:1.09em;line-height:1.6; margin-top:8px;text-align:left;">
+        Mi linda Yessi,<br>
+        Hoy celebro tenerte en mi vida y en mi mundo. Eres la persona más hermosa y adorable, mi luz y mi inspiración.<br><br>
+        Gracias por ser la razón de mi sonrisa, por tus detalles, tu dulzura y por ser mi mayor sueño. Pronto estaremos juntos y cumpliremos cada uno de nuestros sueños, mi princesa.<br><br>
+        Te amo con locura y siempre estaré agradecido por conocerte y por tu amor. ¡Feliz Día de la Novia, mi cielo!<br>
+        <b>Con amor, tu Tommy 💖</b>
+        </div>
+        `;
+      }, 1000);
 
-      // Esperar 15 segundos para pasar a la escena de amor y música
+      this.style.display = 'none';
+
+      // Esperar unos segundos y pasar a la última escena con música y besos
       setTimeout(() => {
         cartaStage.classList.remove('active');
-        amorStage.classList.add('active');
-        // Intenta reproducir la música
-        var audio = document.getElementById('audioBajoElAgua');
-        if (audio) {
-          audio.volume = 1;
-          audio.play().catch(()=>{});
-        }
-      }, 15000);
+        finalStage.classList.add('active');
+        // El iframe de YouTube ya tiene autoplay, pero los navegadores pueden bloquearlo si no hay interacción previa
+        // Si tienes un archivo mp3 propio puedes añadirlo y reproducirlo aquí
+      }, 5000);
     };
 
-    // Explosión de corazones
+    // Explosión de corazones tipo volcán
     function explodeHearts() {
       const explosion = document.createElement('div');
       explosion.className = 'explosion';
-      for (let i=0; i<16; i++) {
+      for (let i=0; i<24; i++) {
         const heart = document.createElement('div');
         heart.className = 'heart';
         heart.textContent = '💖';
         heart.style.position = 'absolute';
-        heart.style.left = (50 + 160 * Math.cos(2*Math.PI*i/16)) + 'px';
-        heart.style.top = (60 + 160 * Math.sin(2*Math.PI*i/16)) + 'px';
+        const angle = (Math.PI * 2 * i) / 24;
+        heart.style.left = (50 + 160 * Math.cos(angle)) + 'px';
+        heart.style.top = (60 + 80 * Math.abs(Math.sin(angle))) + 'px';
         explosion.appendChild(heart);
       }
       document.body.appendChild(explosion);
-      setTimeout(() => explosion.remove(), 1500);
+      setTimeout(() => explosion.remove(), 1600);
     }
-
-    // Permitir scroll en móviles para leer toda la carta
-    window.addEventListener('resize', ()=>{
-      document.querySelectorAll('.carta-card').forEach(card=>{
-        card.style.maxHeight = (window.innerHeight*0.7) + 'px';
-      });
-    });
   </script>
 </body>
 </html>
