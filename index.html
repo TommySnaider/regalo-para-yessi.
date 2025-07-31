@@ -2,66 +2,381 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Feliz Día de la Novia, Yessi</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regalo Sorpresa para Yessi</title>
   <style>
-    body, html {
-      margin: 0; padding: 0; box-sizing: border-box;
-      width: 100vw; height: 100vh; overflow: hidden;
-      background: #111;
+    body {
+      margin: 0;
+      background: #222;
       font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      color: #fff;
+      text-align: center;
     }
-    #lluviaCorazones {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none;
+    .box, .car-stage, .carta-stage, .besos-stage {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box.active, .car-stage.active, .carta-stage.active, .besos-stage.active {
+      display: flex;
+      flex-direction: column;
+    }
+    .rain {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .heart {
+      position: absolute;
+      color: #e25585;
+      font-size: 2em;
+      animation: fall 3s linear infinite;
+      opacity: 0.7;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0.3;
+      }
+    }
+    .gift-box {
+      background: #fff;
+      border-radius: 12px;
+      width: 320px; height: 320px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 6px 32px #e2558533;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .ribbon {
+      width: 320px;
+      height: 30px;
+      background: #e25585;
+      position: absolute;
+      top: 60px; left: 0;
+      border-radius: 15px 15px 0 0;
+    }
+    .ribbon:after {
+      content: '';
+      display: block;
+      width: 40px; height: 40px;
+      background: #e25585;
+      position: absolute;
+      left: 140px; top: -25px;
+      border-radius: 50%;
+    }
+    .open-text {
+      color: #e25585;
+      font-weight: bold;
+      font-size: 1.5em;
+      margin-top: 250px;
+      animation: pulse 1s infinite alternate;
+    }
+    @keyframes pulse {
+      from { opacity: 1;}
+      to { opacity: 0.6;}
+    }
+    /* Car animation */
+    .car-track {
+      width: 90vw;
+      height: 160px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(to right, #ffd6e0 60%, #fff0f6 100%);
+      border-radius: 20px;
+      margin: 0 auto;
+    }
+    .car {
+      width: 200px;
+      position: absolute;
+      top: 55px;
+      left: 0;
+      transition: left 1s;
+      z-index: 2;
+      animation: carmove 5s linear forwards;
+    }
+    @keyframes carmove {
+      0% { left: 0;}
+      100% { left: 80vw;}
+    }
+    .gift-on-car {
+      position: absolute;
+      top: 0; left: 70px;
+      width: 60px; height: 60px;
+      background: #fff;
+      border: 3px solid #e25585;
+      border-radius: 12px;
+      box-shadow: 0 8px 15px #e2558533;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .gift-on-car:after {
+      content: '';
+      width: 40px; height: 8px;
+      background: #e25585;
+      position: absolute;
+      top: 22px; left: 10px;
+      border-radius: 4px;
+    }
+    .car-caption {
+      font-size: 1.3em;
+      color: #e25585;
+      font-weight: bold;
+      margin: 20px 0 10px 0;
+    }
+    .loading-bar {
+      background: #fff;
+      border-radius: 20px;
+      width: 70vw;
+      height: 40px;
+      margin: 15px auto 0 auto;
+      box-shadow: 0 2px 12px #e2558533;
+      position: relative;
+      overflow: hidden;
+    }
+    .loading-fill {
+      background: linear-gradient(90deg, #e25585, #fbb1b7 70%);
+      height: 100%;
+      width: 0;
+      border-radius: 20px;
+      transition: width 0.2s;
+      font-weight: bold;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+    }
+    /* Carta */
+    .carta-card {
+      background: #fff;
+      color: #e25585;
+      border-radius: 20px;
+      width: 90vw; max-width: 520px;
+      box-shadow: 0 4px 20px #e2558533;
+      margin: 20px auto;
+      padding: 40px 20px 20px 20px;
+      position: relative;
+      font-size: 1.2em;
+      text-align: left;
       z-index: 2;
     }
-    .caja-regalo {
-      width: 350px; height: 350px;
-      background: linear-gradient(135deg, #fff 70%, #f48fb1 100%);
-      border-radius: 24px; margin: 100px auto 0; position: relative;
-      box-shadow: 0 0 40px 10px #f06292cc;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column;
-      z-index: 3;
-      animation: aparecer 2s;
-    }
-    @keyframes aparecer {
-      0% { opacity: 0; transform: scale(0.7) }
-      100% { opacity: 1; transform: scale(1) }
-    }
-    .lazo {
-      width: 200px; height: 40px; background: #e91e63;
-      position: absolute; top: 60px; left: 75px; border-radius: 20px 20px 0 0;
-      z-index: 4;
-      box-shadow: 0 6px 18px #e91e6399;
-    }
-    .lazo:after, .lazo:before {
-      content: ''; display: block; position: absolute;
-      background: #e91e63;
-    }
-    .lazo:after {
-      width: 40px; height: 80px; left: -20px; top: -20px; border-radius: 80px 80px 0 0;
-      transform: rotate(-30deg);
-    }
-    .lazo:before {
-      width: 40px; height: 80px; right: -20px; top: -20px; border-radius: 80px 80px 0 0;
-      transform: rotate(30deg);
-    }
-    .boton-abrir {
-      margin-top: 180px; font-size: 1.4em;
-      background: #e91e63; color: #fff; border: none; border-radius: 12px;
-      padding: 16px 36px; cursor: pointer; box-shadow: 0 4px 20px #e91e6333;
-      transition: background 0.2s;
-      z-index: 5;
+    .carta-header {
+      font-size: 1.4em;
       font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
     }
-    .boton-abrir:hover { background: #ad1457; }
-    /* Carro animado */
-    #carro-regalo {
-      position: absolute; top: 42%; left: -380px; width: 300px; height: 150px; z-index: 5;
-      opacity: 0; transition: opacity 1s;
+    .carta-date {
+      text-align: center;
+      color: #888;
+      margin-bottom: 20px;
+      font-size: 1em;
     }
-    .carro-img {
-      width: 100%; height: 100%;
-      object-fit: contain;
-      animation:
+    .carta-btn {
+      margin: 30px auto 0 auto;
+      background: #e25585;
+      color: #fff;
+      padding: 16px 32px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: block;
+      font-family: inherit;
+    }
+    .carta-btn:hover {
+      background: #b81d53;
+    }
+    /* Besos y corazones explosivos */
+    .besos-img {
+      width: 180px;
+      margin: 40px auto 20px auto;
+      animation: besoscale 1s infinite alternate;
+    }
+    @keyframes besoscale {
+      from { transform: scale(1);}
+      to { transform: scale(1.08);}
+    }
+    .explosion {
+      position: absolute;
+      left: 50%; top: 45%;
+      width: 0; height: 0;
+      pointer-events: none;
+      z-index: 9;
+      animation: explode 1.3s forwards;
+    }
+    .explosion .heart {
+      font-size: 2.5em;
+      animation: boom 1.2s forwards;
+      opacity: 1;
+    }
+    @keyframes boom {
+      from { transform: scale(0.2); opacity: 1;}
+      to { transform: scale(1.8) translateY(-100px) rotate(15deg); opacity: 0;}
+    }
+    @keyframes explode {
+      from { width: 0; height: 0;}
+      to { width: 400px; height: 400px;}
+    }
+    .nota-text {
+      background: #fff0f6;
+      color: #e25585;
+      border-radius: 16px;
+      padding: 20px;
+      font-size: 1.1em;
+      margin: 30px 0 0 0;
+      line-height: 1.5;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      .gift-box, .ribbon { width: 220px; }
+      .gift-box { height: 220px;}
+      .ribbon { height: 22px; top: 40px;}
+      .ribbon:after { width: 28px; height: 28px; left: 96px; top: -16px;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Lluvia de corazones y Caja de regalo -->
+  <div class="rain"></div>
+  <div class="box active">
+    <div class="gift-box" id="openGift">
+      <div class="ribbon"></div>
+      <img src="https://img.icons8.com/color/96/000000/gift.png" width="120" style="margin-top:40px;">
+      <div class="open-text">¡Haz clic para abrir tu regalo!</div>
+    </div>
+  </div>
+
+  <!-- Carro en movimiento -->
+  <div class="car-stage">
+    <div class="car-caption">Servicio de Regalo Sorprendentes</div>
+    <div class="car-track">
+      <img src="https://img.icons8.com/color/144/000000/car--v2.png" class="car" id="carImg">
+      <div class="gift-on-car"></div>
+    </div>
+    <div class="loading-bar">
+      <div class="loading-fill" id="loadingFill">1/10</div>
+    </div>
+  </div>
+
+  <!-- Carta -->
+  <div class="carta-stage">
+    <div class="carta-card">
+      <div class="carta-header">Tommy, tu niño que te adora, te envía una carta</div>
+      <div class="carta-date">31 de julio de 2025</div>
+      <div class="nota-text" style="display:none;" id="notaText">
+        Mi linda Yessi,<br>
+        Hoy es un día especial porque celebro tenerte en mi vida. Eres la persona más hermosa y adorable que he conocido. Gracias por ser mi novia, mi amiga y mi princesa. Pronto estaremos juntos y cumpliremos nuestro sueño de caminar de la mano y construir nuestro propio mundo.<br><br>
+        Gracias por cada sonrisa, por tu dulzura y por hacerme sentir tan afortunado. Te amo con todo mi corazón y cada día me siento más agradecido de conocerte.<br><br>
+        Eres mi sueño hecho realidad. ¡Feliz Día de la Novia, mi cielo!<br>
+        <b>Con amor, tu Tommy 💖</b>
+      </div>
+      <button class="carta-btn" id="btnAbrirCarta">Presiona para abrir</button>
+    </div>
+  </div>
+
+  <!-- Besos y corazones -->
+  <div class="besos-stage" style="position:relative;">
+    <audio id="audioBajoElAgua" src="https://cdn.pixabay.com/audio/2022/10/16/audio_12b1c6b5b2.mp3" autoplay loop></audio>
+    <img class="besos-img" src="https://img.icons8.com/emoji/192/kiss-mark-emoji.png" alt="Besos">
+    <div style="font-size:1.2em; color:#fff0f6; margin-top:16px;">¡Te mando millones de besos y corazones! 💋💖</div>
+    <div class="nota-text">
+      <b>Tommy para mi linda Yessi:</b><br>
+      Mi princesa, gracias por existir y permitirme amarte. Eres mi razón de sonreír, mi sueño y mi destino. ¡Pronto estaremos juntos y cumpliremos cada uno de nuestros sueños!<br>
+      <i>Te amo hoy y siempre.</i>
+    </div>
+  </div>
+
+  <script>
+    // Lluvia de corazones
+    function rainHearts() {
+      const rain = document.querySelector('.rain');
+      for (let i=0; i<60; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.textContent = '💖';
+        heart.style.left = Math.random()*100 + 'vw';
+        heart.style.animationDelay = Math.random()*3 + 's';
+        heart.style.fontSize = (1.5 + Math.random()*2.5) + 'em';
+        rain.appendChild(heart);
+      }
+    }
+    rainHearts();
+
+    // Flujo del regalo
+    const box = document.querySelector('.box');
+    const carStage = document.querySelector('.car-stage');
+    const cartaStage = document.querySelector('.carta-stage');
+    const besosStage = document.querySelector('.besos-stage');
+    // Abrir caja
+    document.getElementById('openGift').onclick = function() {
+      box.classList.remove('active');
+      carStage.classList.add('active');
+      startCar();
+    };
+
+    // Carro y barra de carga
+    function startCar() {
+      const car = document.getElementById('carImg');
+      const fill = document.getElementById('loadingFill');
+      let percent = 1;
+      car.style.left = '0';
+      setTimeout(() => { car.style.animationPlayState = 'running'; }, 200);
+      let interval = setInterval(() => {
+        percent++;
+        fill.style.width = (percent*10) + '%';
+        fill.textContent = percent + '/10';
+        if (percent >= 10) {
+          clearInterval(interval);
+          setTimeout(() => {
+            carStage.classList.remove('active');
+            cartaStage.classList.add('active');
+          }, 800);
+        }
+      }, 400);
+    }
+
+    // Abrir carta
+    document.getElementById('btnAbrirCarta').onclick = function() {
+      document.getElementById('notaText').style.display = 'block';
+      this.style.display = 'none';
+      setTimeout(explodeHearts, 1000);
+      setTimeout(() => {
+        cartaStage.classList.remove('active');
+        besosStage.classList.add('active');
+        document.getElementById('audioBajoElAgua').play();
+      }, 2500);
+    };
+
+    // Explosión de corazones
+    function explodeHearts() {
+      const explosion = document.createElement('div');
+      explosion.className = 'explosion';
+      for (let i=0; i<16; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.textContent = '💖';
+        heart.style.position = 'absolute';
+        heart.style.left = (50 + 160 * Math.cos(2*Math.PI*i/16)) + 'px';
+        heart.style.top = (60 + 160 * Math.sin(2*Math.PI*i/16)) + 'px';
+        explosion.appendChild(heart);
+      }
+      document.body.appendChild(explosion);
+      setTimeout(() => explosion.remove(), 1500);
+    }
+  </script>
+</body>
+</html>
